@@ -27,7 +27,7 @@ const Form = ({ getUserListArray, createUser }) => {
       alert('Completa la Id')
       return false;
     }
-
+ 
     if (!values.name.trim()) {
       alert('Completa el nombre')
       return false;
