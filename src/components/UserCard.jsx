@@ -2,8 +2,6 @@ import React from 'react'
 
 export const UserCard = ({ getUserListArray, deleteUser }) => {
 
-  const [userCard, setUserCard] = React.useState('')
-
   let userList = getUserListArray();
 
   return (
@@ -14,7 +12,7 @@ export const UserCard = ({ getUserListArray, deleteUser }) => {
           {
             userList.map((element, index) =>
               <div className='user-card-container' key={index}>
-                <img  alt='userImgView' className='userImg'></img>
+                <img alt='userImgView' className='userImg'></img>
 
                 <table className='table table-hover'>
                   <tbody>
@@ -43,6 +41,14 @@ export const UserCard = ({ getUserListArray, deleteUser }) => {
                     <tr>
                       <th className='informationType'>Dirección</th>
                       <td>{element.address}</td>
+                    </tr>
+                    <tr>
+                      <th className='informationType'>Nick</th>
+                      <td>{element.nick}</td>
+                    </tr>
+                    <tr>
+                      <th className='informationType'>DNI</th>
+                      <td>{element.dni}</td>
                     </tr>
                   </tbody>
                 </table>
