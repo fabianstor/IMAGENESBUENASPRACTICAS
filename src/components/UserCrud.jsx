@@ -11,6 +11,10 @@ const UserCrud = () => {
         await dataBase.collection('user').doc().set(newUser);
     }
 
+    const updateUser = async (userId,userUpdate) => {
+        await dataBase.collection('user').doc(userId).update(userUpdate);
+}
+
     const deleteUser = (userId) => {
         dataBase.collection('user').doc(userId).delete();
     }
@@ -35,7 +39,7 @@ const UserCrud = () => {
 
     return (
         <div>
-            <Form getUserListArray={getUserListArray} createUser={createUser} />
+            <Form getUserListArray={getUserListArray} createUser={createUser} updateUser = {updateUser}/>
             <UserCard getUserListArray={getUserListArray} deleteUser={deleteUser} />
         </div>
     );

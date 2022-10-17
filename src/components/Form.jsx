@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-const Form = ({ getUserListArray, createUser }) => {
+const Form = ({ getUserListArray, createUser,updateUser}) => {
 
   //Atributos de la persona
   const defaultValues = { id: '', userId: '', name: '', lastName: '', age: '', address: '', nick: '', dni: '' };
@@ -79,14 +79,17 @@ const Form = ({ getUserListArray, createUser }) => {
 
     let find = false;
 
+    let principalElement;
     getUserListArray().map((element) => {
       if (element.userId == id) {
-
+        principalElement =element ;
         find = true;
       }
     })
+
     if (find) {
-      alert('Id en uso')
+      updateUser(principalElement.id,values);
+      alert('Id actualizada');
       return false;
     }
 
