@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 const Form = ({ getUserListArray, createUser }) => {
 
   //Atributos de la persona
-  const defaultValues = { id: '', userId: '', name: '', lastName: '', age: '', address: '' };
+  const defaultValues = { id: '', userId: '', name: '', lastName: '', age: '', address: '', nick: '', dni: '' };
   const [values, setValues] = useState(defaultValues);
 
   const handleInputChange = (e) => {
@@ -14,7 +14,7 @@ const Form = ({ getUserListArray, createUser }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (!isAllComplete() || !isAllComplete() ||!isValidId(values.userId)|| !isValidAge(values.age)) {
+    if (!isValidId(values.userId) || !isValidAge(values.age)) {
       return;
     }
     createUser(values);
@@ -44,6 +44,14 @@ const Form = ({ getUserListArray, createUser }) => {
       alert('Completa la dirección')
       return false;
     }
+    if (!values.nick.trim()) {
+      alert('Completa el apodo')
+      return false;
+    }
+    if (!values.dni.trim()) {
+      alert('Completa el DNI')
+      return false;
+    }
     return true;
   }
 
@@ -69,7 +77,7 @@ const Form = ({ getUserListArray, createUser }) => {
 
     getUserListArray().map((element) => {
       if (element.userId == id) {
-       
+
         find = true;
       }
     })
@@ -111,6 +119,7 @@ const Form = ({ getUserListArray, createUser }) => {
             placeholder='Id'
             onChange={handleInputChange}
             value={values.userId}
+            required
           />
 
           <input type="text"
@@ -119,6 +128,7 @@ const Form = ({ getUserListArray, createUser }) => {
             placeholder='Nombre'
             onChange={handleInputChange}
             value={values.name}
+            required
           />
           <input type="text"
             className='form-control mb-3'
@@ -126,14 +136,32 @@ const Form = ({ getUserListArray, createUser }) => {
             placeholder='Apellido'
             onChange={handleInputChange}
             value={values.lastName}
+            required
+          />
+          <input type="text"
+            className='form-control mb-3'
+            name='dni'
+            placeholder='DNI'
+            onChange={handleInputChange}
+            value={values.dni}
+            required
+          />
+          <input type="text"
+            className='form-control mb-3'
+            name='nick'
+            placeholder='Apodo'
+            onChange={handleInputChange}
+            value={values.nick}
+            required
           />
 
-          <input type="text"
+          <input type="number"
             className='form-control mb-3'
             name='age'
             placeholder='Edad'
             onChange={handleInputChange}
             value={values.age}
+            required
           />
 
           <input type="text"
@@ -142,7 +170,9 @@ const Form = ({ getUserListArray, createUser }) => {
             placeholder='Dirección'
             onChange={handleInputChange}
             value={values.address}
+            required
           />
+
           <button className='btn btn-primary' type='submit'>Agregar</button>
         </form>
 
