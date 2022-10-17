@@ -1,4 +1,5 @@
 import UserCrud from "./components/UserCrud";
+import './firebase-config/firebase'
 
 function App() {
   return (
