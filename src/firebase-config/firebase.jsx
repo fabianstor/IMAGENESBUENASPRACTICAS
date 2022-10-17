@@ -1,16 +1,15 @@
-import {initializeApp} from "firebase/app";
-import {getFirestore} from '@firebase/firestore';
+import firebase from 'firebase/app'
+import 'firebase/firestore'
 
 const firebaseConfig = {
-    apiKey: "AIzaSyC--0Wt3fev7IcrzRl6K30ecWgu2QwVmzM",
-    authDomain: "buenaspracticas-65028.firebaseapp.com",
-    projectId: "buenaspracticas-65028",
-    storageBucket: "buenaspracticas-65028.appspot.com",
-    messagingSenderId: "1017996803962",
-    appId: "1:1017996803962:web:ea64f09fc10f6342c360c3",
-    measurementId: "G-HNJEP1KX1T"
+    apiKey: "AIzaSyBtSnJndC7SNd3oHMDbaS8SHBo3J-BEVQ8",
+    authDomain: "basededatos-3c34d.firebaseapp.com",
+    projectId: "basededatos-3c34d",
+    storageBucket: "basededatos-3c34d.appspot.com",
+    messagingSenderId: "573489971601",
+    appId: "1:573489971601:web:d7eeafc3d8b393e2c09a30"
   };
 
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
-export const dataBase = getFirestore();
+const app = firebase.initializeApp(firebaseConfig);
+export const dataBase = app.firestore();

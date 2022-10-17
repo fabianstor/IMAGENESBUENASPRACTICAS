@@ -16,7 +16,7 @@ const UserCrud = () => {
     }
 
     const getUserList = async () => {
-        dataBase.collection('user').onSnapshot((userListQuery) => {
+        await dataBase.collection('user').onSnapshot((userListQuery) => {
             const userListGet = [];
             userListQuery.forEach(element => {
                 userListGet.push({ ...element.data(), id: element.id })
