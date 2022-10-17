@@ -12,7 +12,7 @@ export const UserCard = ({ getUserListArray, deleteUser }) => {
           {
             userList.map((element, index) =>
               <div className='user-card-container' key={index}>
-                <img alt='userImgView' className='userImg'></img>
+                <img src={`https://picsum.photos/id/${element.userId}/200/300`} className='userImg'></img>
 
                 <table className='table table-hover'>
                   <tbody>
