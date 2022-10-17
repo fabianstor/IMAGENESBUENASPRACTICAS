@@ -72,6 +72,10 @@ const Form = ({ getUserListArray, createUser }) => {
       alert('La id debe ser mayor a 0')
       return false;
     }
+    if (id > 1084) {
+      alert('No existe esa imagen, escriba un número menor a 1085')
+      return false;
+    }
 
     let find = false;
 
@@ -108,12 +112,12 @@ const Form = ({ getUserListArray, createUser }) => {
     <div className="form-container">
 
       <h1>Registrar Usuarios</h1>
-      <img src={""} alt='userImgView' className='userRegisterImg'></img>
 
+      {values.userId && values.userId<1085 ? <img src={`https://picsum.photos/id/${values.userId}/200/300`} alt='userImgView' className='userRegisterImg'></img> : null}
       <div className="input-container">
         <form className='information-f' onSubmit={handleSubmit}>
 
-          <input type="text"
+          <input type="number"
             className='form-control mb-3'
             name='userId'
             placeholder='Id'
@@ -124,7 +128,7 @@ const Form = ({ getUserListArray, createUser }) => {
 
           <input type="text"
             className='form-control mb-3'
-            name='name'
+            name='name' te saliste de dis
             placeholder='Nombre'
             onChange={handleInputChange}
             value={values.name}
